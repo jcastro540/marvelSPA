@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { MarvelService } from './services/marvel.service';
-
 
 
 @Component({
@@ -10,14 +8,10 @@ import { MarvelService } from './services/marvel.service';
 })
 export class AppComponent {
   title = 'app works!';
-  heroe:any;
 
-  constructor( public _marvelService:MarvelService){
-  	this._marvelService.getComics()
-  		.subscribe(heroes=>{
-  			console.log(heroes.data.results);
-  			this.heroe = heroes.results;
-  		})
+
+  constructor( ){
+
   }
 }
 

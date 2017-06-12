@@ -140,6 +140,14 @@ select{
     left: -12px;
 }
 
+.content-description{
+	min-height: 200px;
+}
+
+.img-shadow{
+	box-shadow: 10px 10px 15px #ccc;
+}
+
 .related-title{
 /*	position: absolute;
     top: -35px;*/
@@ -159,6 +167,9 @@ select{
 
 .comic-related{
 	padding: 0 16px;
+	min-height: 100px;
+    overflow-y: overlay;
+    max-height: 100px;
 }
 
 /*sidebar*/

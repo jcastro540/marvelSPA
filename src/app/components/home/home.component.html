@@ -21,21 +21,31 @@
 			</div>
 
 			<div class="row">
-				<article class="col-sm-6 mt30">
-
+				<article class="col-sm-6 mt30" *ngFor="let heroe of heroes">
+					
 					<div class="card">
 					 	<div class="row">
 					 		<article class="col-xs-6 col-sm-6">
 		
 								<div class="img-content">
-								  	<img src="http://placehold.it/300x300" alt="" class="img-fluid img-circle">
+								  	<img [src]="heroe.thumbnail.path + hashImg + '.jpg'" alt="" class="img-fluid img-circle img-shadow">
 				  				</div>
 					 		</article>
 					 		<article class="col-xs-6 col-sm-6">
 							<!-- 	<div class="card-block"> -->
-									<h4 class="card-title text-uppercase">Card title</h4>
-								    <p class="card-text text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore eaque totam quis doloremque dolorem accusamus voluptate voluptatibus eveniet et numquam reprehenderit dicta accusantium.</p>
-								    <a href="#" class="btn btn-danger">VIEW MORE</a>
+									<div class="content-description">
+										<h4 class="card-title text-uppercase">{{heroe.name}}</h4>
+									    <p class="card-text text-muted" *ngIf="heroe.description">
+									    	{{heroe.description}}
+									    </p>
+									    <h5 class="text-muted" *ngIf="!heroe.description"> 
+											Without description
+											<br>
+											<br>
+											<br>
+									    </h5>
+									    <a href="#" class="btn btn-danger">VIEW MORE</a>
+									</div>
  							<!-- 	</div>	 -->
 					 		</article>
 					 	</div>
@@ -43,187 +53,23 @@
 					 	<div class="row">
 					 		<article class="col-sm-12">
 								<div class="comic-related">
-									<h5 class="mb-2 text-muted related-title">Related comics</h5>
+									<h5 class="mb-2 text-muted related-title" *ngIf="heroe.comics.items != 0">Related comics</h5>
+									<h5 class="mb-2 text-muted related-title" *ngIf="heroe.comics.items == 0">
+										No related comics found
+									</h5>
 								
 									<div class="row">
-										<article class="col-sm-6">
+										<article class="col-sm-6" *ngFor="let comic of heroe.comics.items">
 											<p class="text-muted">
-												Lorem ipsum dolor sit dolor.
+												<a href="" class="text-muted">{{comic.name}}</a>
 											</p>
-										</article>
-										<article class="col-sm-6">
-											<p class="text-muted">
-												Lorem ipsum dolor sit dolor.
-											</p>
-										</article>
-										<article class="col-sm-6">
-											<p class="text-muted">
-												Lorem ipsum dolor sit dolor.
-											</p>
-										</article>
-										<article class="col-sm-6">
-											<p class="text-muted">
-												Lorem ipsum dolor sit dolor.
-											</p>
-										</article>
+										</article>										
 									</div>
 								</div>
 					 		</article>				 		
 					 	</div>
 					</div>
-				</article>
-				<article class="col-sm-6 mt30">
-					<div class="card">
-					 	<div class="row">
-					 		<article class="col-xs-6 col-sm-6">
-		
-								<div class="img-content">
-								  	<img src="http://placehold.it/300x300" alt="" class="img-fluid img-circle">
-				  				</div>
-					 		</article>
-					 		<article class="col-xs-6 col-sm-6">
-							<!-- 	<div class="card-block"> -->
-									<h4 class="card-title text-uppercase">Card title</h4>
-								    <p class="card-text text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore eaque totam quis doloremque dolorem accusamus voluptate voluptatibus eveniet et numquam reprehenderit dicta accusantium.</p>
-								    <a href="#" class="btn btn-danger">VIEW MORE</a>
- 							<!-- 	</div>	 -->
-					 		</article>
-					 	</div>
-
-					 	<div class="row">
-					 		<article class="col-sm-12">
-								<div class="comic-related">
-									<h5 class="mb-2 text-muted related-title">Related comics</h5>
-								
-									<div class="row">
-										<article class="col-sm-6">
-											<p class="text-muted">
-												Lorem ipsum dolor sit dolor.
-											</p>
-										</article>
-										<article class="col-sm-6">
-											<p class="text-muted">
-												Lorem ipsum dolor sit dolor.
-											</p>
-										</article>
-										<article class="col-sm-6">
-											<p class="text-muted">
-												Lorem ipsum dolor sit dolor.
-											</p>
-										</article>
-										<article class="col-sm-6">
-											<p class="text-muted">
-												Lorem ipsum dolor sit dolor.
-											</p>
-										</article>
-									</div>
-								</div>
-					 		</article>				 		
-					 	</div>
-					</div>
-				</article>
-				
-				<article class="col-sm-6 mt30">
-					<div class="card">
-					 	<div class="row">
-					 		<article class="col-xs-6 col-sm-6">
-		
-								<div class="img-content">
-								  	<img src="http://placehold.it/300x300" alt="" class="img-fluid img-circle">
-				  				</div>
-					 		</article>
-					 		<article class="col-xs-6 col-sm-6">
-							<!-- 	<div class="card-block"> -->
-									<h4 class="card-title text-uppercase">Card title</h4>
-								    <p class="card-text text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore eaque totam quis doloremque dolorem accusamus voluptate voluptatibus eveniet et numquam reprehenderit dicta accusantium.</p>
-								    <a href="#" class="btn btn-danger">VIEW MORE</a>
- 							<!-- 	</div>	 -->
-					 		</article>
-					 	</div>
-
-					 	<div class="row">
-					 		<article class="col-sm-12">
-								<div class="comic-related">
-									<h5 class="mb-2 text-muted related-title">Related comics</h5>
-								
-									<div class="row">
-										<article class="col-sm-6">
-											<p class="text-muted">
-												Lorem ipsum dolor sit dolor.
-											</p>
-										</article>
-										<article class="col-sm-6">
-											<p class="text-muted">
-												Lorem ipsum dolor sit dolor.
-											</p>
-										</article>
-										<article class="col-sm-6">
-											<p class="text-muted">
-												Lorem ipsum dolor sit dolor.
-											</p>
-										</article>
-										<article class="col-sm-6">
-											<p class="text-muted">
-												Lorem ipsum dolor sit dolor.
-											</p>
-										</article>
-									</div>
-								</div>
-					 		</article>				 		
-					 	</div>
-					</div>
-				</article>
-
-				<article class="col-sm-6 mt30">
-					<div class="card">
-					 	<div class="row">
-					 		<article class="col-xs-6 col-sm-6">
-		
-								<div class="img-content">
-								  	<img src="http://placehold.it/300x300" alt="" class="img-fluid img-circle">
-				  				</div>
-					 		</article>
-					 		<article class="col-xs-6 col-sm-6">
-							<!-- 	<div class="card-block"> -->
-									<h4 class="card-title text-uppercase">Card title</h4>
-								    <p class="card-text text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore eaque totam quis doloremque dolorem accusamus voluptate voluptatibus eveniet et numquam reprehenderit dicta accusantium.</p>
-								    <a href="#" class="btn btn-danger">VIEW MORE</a>
- 							<!-- 	</div>	 -->
-					 		</article>
-					 	</div>
-
-					 	<div class="row">
-					 		<article class="col-sm-12">
-								<div class="comic-related">
-									<h5 class="mb-2 text-muted related-title">Related comics</h5>
-								
-									<div class="row">
-										<article class="col-sm-6">
-											<p class="text-muted">
-												Lorem ipsum dolor sit dolor.
-											</p>
-										</article>
-										<article class="col-sm-6">
-											<p class="text-muted">
-												Lorem ipsum dolor sit dolor.
-											</p>
-										</article>
-										<article class="col-sm-6">
-											<p class="text-muted">
-												Lorem ipsum dolor sit dolor.
-											</p>
-										</article>
-										<article class="col-sm-6">
-											<p class="text-muted">
-												Lorem ipsum dolor sit dolor.
-											</p>
-										</article>
-									</div>
-								</div>
-					 		</article>				 		
-					 	</div>
-					</div>
-				</article>
+				</article>				
 			</div>
 
 		</article>

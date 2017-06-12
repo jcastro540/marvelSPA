@@ -11,8 +11,8 @@ export class MarvelService {
  
   ts:number = new Date().getTime();
   hash:any;
-  limit:number = 10;
-  offset:number= 20;
+  limit:number = 100;
+  offset:number= 0;
   config:Config = new Config();
   marvelUrl:string = 'https://gateway.marvel.com:443/v1/public/characters';
   heroe:string = "wolverine";

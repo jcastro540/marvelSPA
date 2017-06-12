@@ -8,7 +8,6 @@ import { MarvelService } from './services/marvel.service';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
-import { DetailComponent } from './components/detail/detail.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 
@@ -16,7 +15,6 @@ import { FooterComponent } from './components/footer/footer.component';
   declarations: [
     AppComponent,
     HomeComponent,
-    DetailComponent,
     NavbarComponent,
     FooterComponent
   ],
