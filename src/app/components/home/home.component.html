@@ -13,22 +13,25 @@
 					</ul>
 				</article>
 				<article class="col-sm-6">
-					<select name="" id="" class="form-control sort">
+					<select (change)="getHeroesPaginados()"
+							class="form-control sort" 
+							[(ngModel)]="_marvelService.orderBy">
 						<option value="">Sort by</option>
+						<option *ngFor="let sort of order" [value]="sort.name">{{sort.view}}</option>
 					</select>
 
 				</article>	
 			</div>
 
-			<div class="row">
-				<article class="col-sm-6 mt30" *ngFor="let heroe of heroes">
+			<div class="row" *ngIf="_marvelService.heroes">
+				<article class="col-sm-6 mt30" *ngFor="let heroe of _marvelService.heroes">
 					
 					<div class="card">
 					 	<div class="row">
 					 		<article class="col-xs-6 col-sm-6">
 		
 								<div class="img-content">
-								  	<img [src]="heroe.thumbnail.path + hashImg + '.jpg'" alt="" class="img-fluid img-circle img-shadow">
+								  	<img src="{{heroe?.thumbnail?.path + hashImg + '.jpg'}}" alt="" class="img-fluid img-circle img-shadow">
 				  				</div>
 					 		</article>
 					 		<article class="col-xs-6 col-sm-6">
@@ -53,13 +56,13 @@
 					 	<div class="row">
 					 		<article class="col-sm-12">
 								<div class="comic-related">
-									<h5 class="mb-2 text-muted related-title" *ngIf="heroe.comics.items != 0">Related comics</h5>
-									<h5 class="mb-2 text-muted related-title" *ngIf="heroe.comics.items == 0">
+									<h5 class="mb-2 text-muted related-title" *ngIf="heroe?.comics?.items != 0">Related comics</h5>
+									<h5 class="mb-2 text-muted related-title" *ngIf="heroe?.comics?.items == 0">
 										No related comics found
 									</h5>
 								
 									<div class="row">
-										<article class="col-sm-6" *ngFor="let comic of heroe.comics.items">
+										<article class="col-sm-6" *ngFor="let comic of heroe?.comics?.items">
 											<p class="text-muted">
 												<a href="" class="text-muted">{{comic.name}}</a>
 											</p>
@@ -70,6 +73,43 @@
 					 	</div>
 					</div>
 				</article>				
+			</div>
+
+			<!-- PAGINADOR -->
+			<div class="content-paginate">
+		    
+		        <div class="text-center">
+		            <nav>
+		            	<ul *ngIf="_marvelService.pager.pages && _marvelService.pager.pages.length" class="pagination">
+			                <li [ngClass]="{disabled:_marvelService.pager.currentPage === 1}" class="page-item">
+			                    <a (click)="setPage(1)" class="page-link pagination-limited">First</a>
+			                </li>
+			                <li [ngClass]="{disabled:_marvelService.pager.currentPage === 1}">
+			                    <a (click)="setPage(_marvelService.pager.currentPage - 1)" class="page-link arrow-paginate">
+			                    	<img src="../../../assets/icons/btn_arrow_left.png" alt="">
+			                    </a>
+			                </li>
+			                <li *ngFor="let page of _marvelService.pager.pages"
+			                	class="page-item" 
+			                    [ngClass]="{active:_marvelService.pager.currentPage === page}">
+			                    <a (click)="setPage(page)" class="page-link">{{page}}</a>
+			                </li>
+			                <li [ngClass]="{disabled:_marvelService.pager.currentPage === _marvelService.pager.totalPages}"
+			                	class="page-item">
+			                    <a (click)="setPage(_marvelService.pager.currentPage + 1)"
+			                    	class="page-link arrow-paginate">
+			                    	<img src="../../../assets/icons/btn_arrow_right.png" alt="">
+			                    </a>
+			                </li>
+			                <li [ngClass]="{disabled:_marvelService.pager.currentPage === _marvelService.pager.totalPages}"
+			                	class="page-item">
+			                    <a (click)="setPage(_marvelService.pager.totalPages)"
+			                    	class="page-link pagination-limited">Last</a>
+			                </li>
+		           		</ul>
+		            </nav>
+			    </div>
+			    
 			</div>
 
 		</article>

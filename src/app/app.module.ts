@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 
 //Servicios
 import { MarvelService } from './services/marvel.service';
+import { PagerService } from './services/pager.service';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -23,7 +24,8 @@ import { FooterComponent } from './components/footer/footer.component';
     FormsModule,
     HttpModule
   ],
-  providers: [MarvelService],
+  providers: [MarvelService, PagerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+PagerService

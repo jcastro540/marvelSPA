@@ -10,7 +10,12 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
       <form class="form-inline form-search">
         <div class="input-group">
-        <input type="text" class="form-control input-search" placeholder="Search character...">
+        <input [(ngModel)]="_marvelService.heroe"
+               (keyup)="buscarHeroe()"
+               name="heroe" 
+               type="text" 
+               class="form-control input-search" 
+               placeholder="Search character...">
         <span class="input-group-btn">
           <button class="btn btn-secondary button-search" type="button">
             <img src="../../../assets/icons/search.png" alt="" class="img-search">
