@@ -1,1 +1,192 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|PT+Sans');
+/*font-family: 'Open Sans', sans-serif;
+font-family: 'PT Sans', sans-serif;*/
+body{
+	font-family: 'PT Sans', sans-serif;
+	background-color: #f4f4f4;
+}
+
+h4 {
+	font-weight: bold;
+}
+
+
+.btn{
+	border-radius: 0;
+}
+
+.mt10{
+	margin-top: 10px;
+}
+
+.mt30{
+	margin-top: 30px;
+}
+
+.mt50{
+	margin-top: 50px;
+}
+
+/*Navbar*/
+.logo{
+	height: 40px;
+	width: auto;
+}
+
+.img-search{
+	height: 25px;
+	width: auto;
+}
+
+.form-search{
+	width: 50%;
+	margin: 0 auto;
+	display: block;
+}
+
+.button-search{
+	padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: white;
+    border-radius: 0;
+    border-left: none;
+}
+
+.button-search:hover, .button-search:focus{
+	background-color: white;
+	border-color: transparent;
+	box-shadow: none;
+}
+
+.input-search{
+	border-radius: 0;
+	background-clip: border-box;
+	color: #95a5a6!important;
+}
+
+.input-search:hover{
+	box-shadow: none;
+	border-color: transparent;
+	/*border: none;*/
+	border-right: none;
+}
+
+.input-search:focus{
+    color: #464a4c;
+	background-color: #fff;
+	border-color: #F11E22;
+	border-right: none;
+}
+
+.input-search:focus ~ .input-group-btn > .button-search{ 
+	border-color: #F11E22;
+}
+
+input::-webkit-input-placeholder { 
+ color: #ccc !important;
+}
+input:-ms-input-placeholder { 
+  color: #ccc !important;
+}
+input::-moz-placeholder { 
+  color: #ccc !important;
+
+}
+input:-moz-placeholder {
+  color: #ccc !important;
+
+}
+
+/*Home*/
+.sort{
+	width: 60%;
+    float: right;
+    border-radius: 0;
+    height: 45px!important;
+}
+
+select{
+	background:  no-repeat right #ddd;
+	background-image: url(assets/icons/btn_arrow_down.png)!important;
+    -webkit-appearance: none;
+    background-position-x: 244px;
+}
+
+.sort:focus{
+	border-color: #F11E22;
+}
+
+.content-favourites{
+	background-color: #ebebeb;
+	min-height: 100vh;
+	box-sizing: border-box;
+    padding-bottom: 20px;
+}
+
+.box-favo{
+	position: relative;
+	top: 30px;
+	padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.img-circle{
+	border-radius: 50%;
+}
+
+.img-content{
+	position: relative;
+	top: -15px;
+    left: -12px;
+}
+
+.related-title{
+/*	position: absolute;
+    top: -35px;*/
+    font-weight: bold;
+}
+
+.card-title{
+	top: -15px;
+    position: relative;
+}
+
+.card-text{
+	padding: 0 5px;
+	font-size: 15px;
+    margin-top: -25px;
+}
+
+.comic-related{
+	padding: 0 16px;
+}
+
+/*sidebar*/
+.favorite-comic {
+	position: relative;
+}
+
+.img-favorite{
+	display: block;
+	margin: 0 auto;
+	width: 70%;
+	height: 300px;
+	background-size: cover;
+	background-position: center center;
+	position: relative;
+}
+
+.trash-favorite{
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    background: transparent;
+    border: none;
+}
+
+
+/*Footer*/
+.footer-bg{
+	background-color: #2d2727;
+    padding: 10px 0;
+}
