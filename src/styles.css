@@ -27,6 +27,15 @@ h4 {
 	margin-top: 50px;
 }
 
+.mb50{
+	margin-bottom: 50px;
+}
+
+.bold{
+	font-weight: bold;
+}
+
+
 /*Navbar*/
 .logo{
 	height: 40px;
@@ -167,9 +176,9 @@ select{
 
 .comic-related{
 	padding: 0 16px;
-	min-height: 100px;
+/*	min-height: 100px;
     overflow-y: overlay;
-    max-height: 100px;
+    max-height: 100px;*/
 }
 
 /*sidebar*/
@@ -235,6 +244,45 @@ select{
 
 .pagination-limited{
 	width: 70px;
+}
+
+/*Modal*/
+.close-modal {
+    top: 0px;
+    right: 0;
+    background: transparent;
+    border: none;
+}
+
+.modal-header{
+	border: none;
+}
+
+.modal-content{
+	border-radius: 0;
+}
+
+.modal-footer{
+	padding: 0; 
+	border-top:none;
+}
+
+.btn-modal{
+	width: 50%;
+	margin:0!important;
+	padding: 20px 0px;
+}
+
+.btn-add{
+	background-color: #f0f0f0;
+}
+
+.btn.buy{
+	background-color: #dcdcdc;
+}
+
+button:focus{
+	outline: none;
 }
 
 /*Footer*/

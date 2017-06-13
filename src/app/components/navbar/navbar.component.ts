@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MarvelService } from '../../services/marvel.service';
 import { PagerService } from '../../services/pager.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -10,9 +11,7 @@ import { PagerService } from '../../services/pager.service';
 })
 export class NavbarComponent implements OnInit {
 
-  // heroe:string = "";
-
-  constructor(public _marvelService:MarvelService, public _pagerService:PagerService) { }
+  constructor(public _marvelService:MarvelService, public _pagerService:PagerService, private router:Router) { }
 
   ngOnInit() {
   }
@@ -27,10 +26,12 @@ export class NavbarComponent implements OnInit {
   				this._marvelService.itemsPaginated = heroes.data.total;	
   			}
   			
-  			console.log(this._marvelService.itemsPaginated)
+  			// console.log(this._marvelService.itemsPaginated)
   			// console.log(this._marvelService.itemsPaginated);
   			// console.log('Buscar', this._marvelService.heroes);
   			this.setPage(1);
+        return this.router.navigate(['/home']);
+
   		})
   }
 
@@ -43,7 +44,7 @@ export class NavbarComponent implements OnInit {
  
         // Obtener el objeto de paginación de servicio
         this._marvelService.pager = this._pagerService.getPager(this._marvelService.itemsPaginated, page);
-        console.log(this._marvelService.pager);
+        // console.log(this._marvelService.pager);
         // console.log(this.pager);
  	
         // Obtener la página actual de los elementos
@@ -52,7 +53,7 @@ export class NavbarComponent implements OnInit {
         // console.log('limite ', this._marvelService.pager.limit)
         // console.log('offset ',this._marvelService.pager.offset)
         this._marvelService.offset = this._marvelService.pager.offset;
-        console.log('paginador', this._marvelService.pager.pages);
+        // console.log('paginador', this._marvelService.pager.pages);
 
     }
 

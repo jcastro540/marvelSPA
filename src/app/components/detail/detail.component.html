@@ -1,0 +1,88 @@
+<section class="container-fluid">
+	<div class="card mt30">
+		<div class="card-block">
+			<div class="row" *ngFor="let h of hero">
+			<article class="col-sm-4">
+				<h3 class="bold text-muted text-uppercase">{{h.name}}</h3>
+				<img src="{{h?.thumbnail?.path + hashImg + '.jpg'}}" alt="" class="img-fluid img-circle img-shadow">
+				<p *ngIf="h.description" class="text-muted mt30">
+					{{h.description}}
+				</p>
+				<h5 class="text-muted text-center mt50 text-uppercase" *ngIf="!h.description"> 
+					Without description
+			    </h5>
+				
+				<a [routerLink]="['/home']" class="btn btn-danger">BACK</a>
+
+			</article>
+			<article class="col-sm-8">
+				<div class="row">
+			 		<article class="col-sm-12">
+						<div class="comic-related">
+							<h5 class="mb-2 text-muted related-title text-uppercase" *ngIf="h?.comics?.items != 0">Related comics</h5>
+							<h5 class="mb-2 text-muted related-title text-uppercase" *ngIf="h?.comics?.items == 0">
+								<div class="mb50 text-center">No related comics found</div>
+							</h5>
+						
+							<div class="row">
+								<div class="col-sm-12">
+									<ul  class="list-group">
+										<!-- <li class="list-group-item list-group-item-action text-muted"> -->
+											<a  *ngFor="let comic of h?.comics?.items ; let i = index;"
+												[attr.data-target]="'#' + 'ab' + i" data-toggle="modal" 
+											    class="list-group-item list-group-item-action text-muted">
+											    {{comic.name}}
+											</a>
+										<!-- </li> -->
+									</ul>	
+								</div>									
+							</div>
+						</div>
+			 		</article>				 		
+			 	</div>
+			</article>
+		</div>
+		</div>
+	</div>
+</section>
+
+
+<!-- Modal -->
+<div *ngFor="let comic of comics; let i = index">
+	<div class="modal fade" [attr.id]="'ab' + i" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog modal-lg" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <!-- <span aria-hidden="true">&times;</span> -->
+	        </button>
+			<button class="close-modal" data-dismiss="modal">
+				<img src="../../../assets/icons/btn-close.png" alt="">
+			</button>
+	      </div>
+	      <div class="modal-body">
+			<div class="row">
+				<article class="col-sm-4">
+					<img src="{{comic[0]?.thumbnail?.path + hashImgComic + '.jpg'}}" alt="" class="img-fluid">
+				</article>
+				<article class="col-sm-8">
+					<h3 class="" id="exampleModalLabel">{{comic[0].title}}</h3>
+					<p class="text-muted">{{comic[0].description}}</p>
+				</article>
+			</div>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" 
+	        		class="btn btn-secondary btn-modal btn-add" 
+	        		data-dismiss="modal">
+	        		<img src="../../../assets/icons/btn-favourites-default.png" alt=""> ADD TO FAVOURITES
+	        </button>
+	        <button type="button" 
+	        		class="btn btn-default btn-modal btn.buy">
+	        		<img src="../../../assets/icons/shopping-cart-primary.png" alt=""> BUY FOR $<span>{{comic[0].prices[0].price}}</span>
+	        </button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+</div>

@@ -1,6 +1,6 @@
 <section class="container-fluid">
 	<div class="row">
-		<article class="col-sm-9 mt30">
+		<article class="col-sm-12 mt30">
 			<div class="row">
 				<article class="col-sm-6">
 					<ul class="list-inline">
@@ -39,7 +39,7 @@
 									<div class="content-description">
 										<h4 class="card-title text-uppercase">{{heroe.name}}</h4>
 									    <p class="card-text text-muted" *ngIf="heroe.description">
-									    	{{heroe.description}}
+									    	{{heroe.description | slice:0:140}} ...
 									    </p>
 									    <h5 class="text-muted" *ngIf="!heroe.description"> 
 											Without description
@@ -47,7 +47,7 @@
 											<br>
 											<br>
 									    </h5>
-									    <a href="#" class="btn btn-danger">VIEW MORE</a>
+									    <a [routerLink]="['/hero-detail', heroe.id]" class="btn btn-danger">VIEW MORE</a>
 									</div>
  							<!-- 	</div>	 -->
 					 		</article>
@@ -58,11 +58,11 @@
 								<div class="comic-related">
 									<h5 class="mb-2 text-muted related-title" *ngIf="heroe?.comics?.items != 0">Related comics</h5>
 									<h5 class="mb-2 text-muted related-title" *ngIf="heroe?.comics?.items == 0">
-										No related comics found
+										<div class="mb50">No related comics found</div>
 									</h5>
 								
 									<div class="row">
-										<article class="col-sm-6" *ngFor="let comic of heroe?.comics?.items">
+										<article class="col-sm-6" *ngFor="let comic of heroe?.comics?.items | slice:0:4">
 											<p class="text-muted">
 												<a href="" class="text-muted">{{comic.name}}</a>
 											</p>
@@ -115,36 +115,9 @@
 		</article>
 
 		<!-- Sidebar -->
-		<article class="col-sm-3">
-			<div class="content-favourites">
-				<div class="box-favo">
-					<ul class="list-inline">
-						<li class="list-inline-item">
-							<img src="../../../assets/icons/favourites.png" alt="">
-						</li>
-						<li class="list-inline-item">
-							<h4>My Favourites</h4>
-						</li>
-					</ul>
-				</div>
-				
-				<div class="favorite-comic mt50" >
-					<div class="img-favorite" style="background-image: url(http://placehold.it/250x400);">
-						<button class="trash-favorite">
-							<img src="../../../assets/icons/btn-delete.png" alt="">
-						</button>
-					</div>							
-				</div>
+<!-- 		<article class="col-sm-3">
+			
 
-				<div class="favorite-comic mt50" >
-					<div class="img-favorite" style="background-image: url(http://placehold.it/250x400);">
-						<button class="trash-favorite">
-							<img src="../../../assets/icons/btn-delete.png" alt="">
-						</button>
-					</div>					
-				</div>
-			</div>
-
-		</article>
+		</article> -->
 	</div>
 </section>

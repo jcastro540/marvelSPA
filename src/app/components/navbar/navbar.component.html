@@ -3,7 +3,7 @@
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" [routerLink]="['/home']">
       <img src="../../../assets/img/marvel-logo.png" alt="" class="logo">
     </a>
 
@@ -17,7 +17,7 @@
                class="form-control input-search" 
                placeholder="Search character...">
         <span class="input-group-btn">
-          <button class="btn btn-secondary button-search" type="button">
+          <button (click)="buscarHeroe()" class="btn btn-secondary button-search" type="button">
             <img src="../../../assets/icons/search.png" alt="" class="img-search">
           </button>
         </span>
