@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MarvelService } from '../../services/marvel.service';
 import { ActivatedRoute, Params } from '@angular/router';
+import { FavouriteService } from '../../services/favourite.service';
 
 
 @Component({
@@ -18,7 +19,8 @@ export class DetailComponent implements OnInit {
   comics:any[]=[];
 
   constructor( public _marvelService:MarvelService,
-  			   public _activatedRoute:ActivatedRoute ) { }
+  			   public _activatedRoute:ActivatedRoute,
+  			   public _favouriteService:FavouriteService ) { }
 
   ngOnInit() {
   	this._activatedRoute.params.forEach((params:Params)=>{
@@ -29,8 +31,9 @@ export class DetailComponent implements OnInit {
   				// console.log(this.hero)
   				this.getIdComic(this.hero);
   				this.getComics();
+  				this._favouriteService.getFavourite();
   			})
-  	})
+  	});
   }
 
   getIdComic(heroes:any[]){
@@ -61,6 +64,13 @@ export class DetailComponent implements OnInit {
   			})
   	}
   	console.log(this.comics);
+  }
+
+  addFavorite(comic:any){
+  	// console.log(comic);
+  	this._favouriteService.saveFavourite(comic);
+  	console.log(this._favouriteService.favourites);
+  	this._favouriteService.getFavourite();
   }
 
 }

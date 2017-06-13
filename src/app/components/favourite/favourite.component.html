@@ -1,0 +1,22 @@
+<div class="content-favourites">
+	<div class="box-favo">
+		<ul class="list-inline">
+			<li class="list-inline-item">
+				<img src="../../../assets/icons/favourites.png" alt="">
+			</li>
+			<li class="list-inline-item">
+				<h4>My Favourites</h4>
+			</li>
+		</ul>
+	</div>
+	
+	<div class="favorite-comic mt50" *ngFor="let favourite of _favouriteService.favourites">
+		<div class="img-favorite">
+			<img src="{{favourite?.thumbnail?.path + hashImgComic + '.jpg'}}" alt="" class="img-fluid">					
+			<button class="trash-favorite" (click)="borrarFavorito(favourite.id)">
+				<img src="../../../assets/icons/btn-delete.png" alt="">
+			</button>
+		</div>							
+	</div>
+
+</div>
