@@ -22,7 +22,6 @@ export class MarvelService {
   heroe:string ="";
   pager: any = {};
   pagedItems: any[];
-  // name = "w";
 
 
   constructor( private http:Http ) {
@@ -36,8 +35,7 @@ export class MarvelService {
       url = `${this.marvelUrl}?nameStartsWith=${this.heroe}&orderBy=${this.orderBy}&ts=${this.ts}&offset=${this.offset}&limit=${this.limit}&apikey=${this.config.publicKey}&hash=${this.hash}`;
     }else{
       url = `${this.marvelUrl}?nameStartsWith=.&orderBy=${this.orderBy}&ts=${this.ts}&offset=${this.offset}&limit=${this.limit}&apikey=${this.config.publicKey}&hash=${this.hash}`;
-    }
-    
+    }   
     
     // console.log(url);
     return this.http.get(url)

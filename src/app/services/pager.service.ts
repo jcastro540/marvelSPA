@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import * as _ from 'underscore';
 
 @Injectable()
 export class PagerService {
@@ -10,6 +9,7 @@ export class PagerService {
   	getPager(totalItems: number, currentPage: number = 1, pageSize: number = 10) {
         // Calcular el total de páginas
         let totalPages = Math.ceil(totalItems / pageSize);
+        let pages:any[]=[];
  
         let startPage: number, endPage: number, limit:number = 10, offset:number = 0;
         if (totalPages <= 10) {
@@ -18,6 +18,7 @@ export class PagerService {
             endPage = totalPages;
             limit = currentPage * 10;
             offset = currentPage *10 - 10;
+            pages=[];
 
 
         } else {
@@ -25,7 +26,7 @@ export class PagerService {
             if (currentPage <= 1) {
                 startPage = 1;
                 endPage = 10;
-
+                
             } 
 
             	else if (currentPage + 9 >= totalPages) {
@@ -45,15 +46,16 @@ export class PagerService {
             }
         }
 
-
-
- 
         // Calcular los índices de elementos iniciales y finales
         let startIndex = (currentPage - 1) * pageSize;
         let endIndex = Math.min(startIndex + pageSize - 1, totalItems - 1);
- 
+       
         // Crear una array de páginas para ng-repeat
-        let pages = _.range(startPage, endPage + 1);
+           
+        for(startPage; startPage <= endPage; startPage++){
+            pages.push(startPage);
+        }
+        // console.log('servicio',pages);
  
         // returna todos los objetos requeridos para la vista
         return {

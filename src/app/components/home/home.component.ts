@@ -41,21 +41,9 @@ export class HomeComponent implements OnInit {
   			   private _pagerService: PagerService ) { }
 
   ngOnInit() {
-  	// this.getHeroes(); 		
+		
   }
 
-  // getHeroes(){
-  // 	this._marvelService.getCharacter()
-  // 		.subscribe(heroes=>{
-  // 			// console.log(heroes.data.results);
-  // 			this._marvelService.heroes = heroes.data.results;
-  // 			this._marvelService.itemsPaginated = heroes.data.total;
-  // 			// console.log(this.heroes);
-  // 			// console.log(this._marvelService.itemsPaginated);
-
-  // 			this.setPage(1);
-  // 		});
-  // }
 
   //Paginador
 
