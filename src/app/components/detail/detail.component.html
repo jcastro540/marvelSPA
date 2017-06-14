@@ -28,12 +28,13 @@
 								<div class="col-sm-12">
 									<ul  class="list-group">
 										<li class="list-group-item list-group-item-action text-muted" 
-											*ngFor="let comic of h?.comics?.items ; let i = index;"
-											(click)="existeComic(comic)">
+											*ngFor="let c of comics ; let i = index;"
+											(click)="existeComic(c[0].id)"
+											>
 											<a  
 												[attr.data-target]="'#' + 'ab' + i" data-toggle="modal" 
 											    class=" text-muted">
-											    {{comic.name}}
+											    {{c[0].title}}
 											</a>
 										</li>
 									</ul>	
@@ -70,6 +71,7 @@
 				<article class="col-sm-8">
 					<h3 class="" id="exampleModalLabel">{{comic[0].title}}</h3>
 					<p class="text-muted">{{comic[0].description}}</p>
+					{{comic[0].id}}
 				</article>
 			</div>
 	      </div>
