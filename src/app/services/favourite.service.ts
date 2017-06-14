@@ -16,10 +16,10 @@ export class FavouriteService {
   getFavourite(){
   	if(JSON.parse(localStorage.getItem('favourite')) != null){
   		this.favourites = JSON.parse(localStorage.getItem('favourite'));
-  		console.log(this.favourites);
+  		// console.log(this.favourites);
   	}else{
   		this.favourites=[];
-  		console.log(this.favourites);
+  		// console.log(this.favourites);
   	}
   	
   }

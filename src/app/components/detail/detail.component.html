@@ -27,13 +27,15 @@
 							<div class="row">
 								<div class="col-sm-12">
 									<ul  class="list-group">
-										<!-- <li class="list-group-item list-group-item-action text-muted"> -->
-											<a  *ngFor="let comic of h?.comics?.items ; let i = index;"
+										<li class="list-group-item list-group-item-action text-muted" 
+											*ngFor="let comic of h?.comics?.items ; let i = index;"
+											(click)="existeComic(comic)">
+											<a  
 												[attr.data-target]="'#' + 'ab' + i" data-toggle="modal" 
-											    class="list-group-item list-group-item-action text-muted">
+											    class=" text-muted">
 											    {{comic.name}}
 											</a>
-										<!-- </li> -->
+										</li>
 									</ul>	
 								</div>									
 							</div>
@@ -72,15 +74,24 @@
 			</div>
 	      </div>
 	      <div class="modal-footer">
-	        <button (click)="addFavorite(comic[0])"
+	        <button  *ngIf="!favo"
+	        		(click)="addFavorite(comic[0])"
 	        		type="button" 
 	        		class="btn btn-secondary btn-modal btn-add" 
 	        		data-dismiss="modal">
-	        		<img src="../../../assets/icons/btn-favourites-default.png" alt=""> ADD TO FAVOURITES
+	        		<img src="../../../assets/icons/btn-favourites-default.png" alt=""> <b>ADD TO FAVOURITES</b>
 	        </button>
+
+			<button *ngIf="favo"
+	        		type="button" 
+	        		class="btn btn-secondary btn-modal btn-added text-danger" 
+	        		data-dismiss="modal">
+	        		<img src="../../../assets/icons/btn-favourites-primary.png" alt=""> <b>ADDED TO FAVOURITES</b>
+	        </button>
+
 	        <button type="button" 
-	        		class="btn btn-default btn-modal btn.buy">
-	        		<img src="../../../assets/icons/shopping-cart-primary.png" alt=""> BUY FOR $<span>{{comic[0].prices[0].price}}</span>
+	        		class="btn btn-default btn-modal btn.buy text-danger">
+	        		<img src="../../../assets/icons/shopping-cart-primary.png" alt=""> <b>BUY FOR $<span>{{comic[0].prices[0].price}}</span></b>
 	        </button>
 	      </div>
 	    </div>

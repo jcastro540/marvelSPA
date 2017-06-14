@@ -279,11 +279,24 @@ select{
 
 .btn.buy{
 	background-color: #dcdcdc;
+	border:none;
 }
 
-button:focus{
+.btn-added{
+	background-color: #2d2727;
+	border:none;
+}
+
+.btn-added:hover{
+	background-color: #2d2727;
+	border:none;
+}
+
+
+button:focus, button:active{
 	outline: none;
 }
+    
 
 /*Footer*/
 .footer-bg{

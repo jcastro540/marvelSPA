@@ -17,6 +17,7 @@ export class DetailComponent implements OnInit {
   hashImgComic:string ="/portrait_uncanny"
   idComics = [];
   comics:any[]=[];
+  favo:any;
 
   constructor( public _marvelService:MarvelService,
   			   public _activatedRoute:ActivatedRoute,
@@ -40,7 +41,7 @@ export class DetailComponent implements OnInit {
  	let urls=[];
 
   	for(let heroe of heroes){
-  		console.log(heroe.comics.items);
+  		// console.log(heroe.comics.items);
   		for(let uri of heroe.comics.items){
   			//convierto a array
   			let arr = uri.resourceURI.split('/');
@@ -51,7 +52,7 @@ export class DetailComponent implements OnInit {
   			//Paso los idComics al arreglo
   			this.idComics.push(idComicsNumber);
   		}
-  		console.log('idComics', this.idComics);
+  		// console.log('idComics', this.idComics);
   	}
   }
 
@@ -63,14 +64,50 @@ export class DetailComponent implements OnInit {
   				this.comics.push(comic.data.results);
   			})
   	}
-  	console.log(this.comics);
+  	// console.log(this.comics);
   }
 
   addFavorite(comic:any){
   	// console.log(comic);
+    // this.isFavorite(this._favouriteService.favourites, comic.id);
   	this._favouriteService.saveFavourite(comic);
-  	console.log(this._favouriteService.favourites);
+  	// console.log(this._favouriteService.favourites);
   	this._favouriteService.getFavourite();
+  }
+
+  isFavourite(arreglo, id){
+    // console.log(arreglo);
+    // console.log(id);
+    for(let val of arreglo){
+      if( val.id == id){
+        console.log( 'val: ' + val.id , 'id: ' + id );
+        console.log('Es favorito')
+        return true;
+      }
+       else{
+        console.log( 'val: ' + val.id , 'id: ' + id );
+        console.log('no favorito');
+        // return false;
+      }
+
+    }
+  }
+
+  existeComic(id){
+    let ident;
+    console.log(id);
+    let arr = id.resourceURI.split('/');
+    // saco el idComics del Array
+    let last = arr.pop();
+    //Parseo los idComics a numeros
+    let idComicsNumber = parseInt(last);
+    //Paso los idComics al arreglo
+    ident = idComicsNumber;
+    console.log(this._favouriteService.favourites)
+    console.log('ident ', ident);
+    // Saber si es favorito
+    this.favo = this.isFavourite(this._favouriteService.favourites, ident);
+    console.log(this.favo);
   }
 
 }
