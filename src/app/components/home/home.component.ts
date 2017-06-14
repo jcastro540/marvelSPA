@@ -2,12 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { MarvelService } from '../../services/marvel.service';
 import { PagerService } from '../../services/pager.service';
 
-
-import * as _ from 'underscore';
- 
-
-
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -15,7 +9,7 @@ import * as _ from 'underscore';
 })
 export class HomeComponent implements OnInit {
   
-  heroes:any;
+  // heroes:any;
   hashImg:string ="/standard_fantastic";
   order:any[] = [
   	{
@@ -41,7 +35,7 @@ export class HomeComponent implements OnInit {
   			   private _pagerService: PagerService ) { }
 
   ngOnInit() {
-		
+	
   }
 
 
@@ -76,7 +70,10 @@ export class HomeComponent implements OnInit {
   			// console.log('Buscar', this._marvelService.heroes);
   			// this.setPage(1);
   		})
+   
     }
+
+
 
 
 

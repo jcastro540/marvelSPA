@@ -23,6 +23,11 @@
         </span>
       </div>
       </form>
+      <button (click)="agregarFavoritoAleatorio()"
+              [disabled]="comicsData.length == 0" 
+              class="btn btn-danger">
+        Random
+      </button>
     </div>
   </div>
 </nav>

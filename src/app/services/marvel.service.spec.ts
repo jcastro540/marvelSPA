@@ -8,8 +8,4 @@ describe('MarvelService', () => {
       providers: [MarvelService]
     });
   });
-
-  it('should be created', inject([MarvelService], (service: MarvelService) => {
-    expect(service).toBeTruthy();
-  }));
 });

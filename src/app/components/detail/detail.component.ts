@@ -94,18 +94,6 @@ export class DetailComponent implements OnInit {
   }
 
   existeComic(id){
-    // let ident;
-    // console.log(id);
-    // let arr = id.resourceURI.split('/');
-    // // saco el idComics del Array
-    // let last = arr.pop();
-    // //Parseo los idComics a numeros
-    // let idComicsNumber = parseInt(last);
-    // //Paso los idComics al arreglo
-    // ident = idComicsNumber;
-    // console.log(this._favouriteService.favourites)
-    // console.log('ident ', ident);
-    // Saber si es favorito
     this.favo = this.isFavourite(this._favouriteService.favourites, id);
     console.log(this.favo);
   }

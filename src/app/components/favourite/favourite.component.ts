@@ -20,7 +20,6 @@ export class FavouriteComponent implements OnInit {
   borrarFavorito(favourite:any){
   	// console.log(favourite);
   	this._favouriteService.deleteFavourite(this._favouriteService.favourites,'id', favourite);
-  	// this._favouriteService.getFavourite();
   }
   
 

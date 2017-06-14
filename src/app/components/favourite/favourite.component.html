@@ -12,7 +12,9 @@
 	
 	<div class="favorite-comic mt50" *ngFor="let favourite of _favouriteService.favourites">
 		<div class="img-favorite">
-			<img src="{{favourite?.thumbnail?.path + hashImgComic + '.jpg'}}" alt="" class="img-fluid">					
+			<img src="{{favourite?.thumbnail?.path + hashImgComic + '.jpg'}}" alt="" class="img-fluid">	
+			<br>
+			<p class="text-center"><b>{{favourite.title}}</b></p>			
 			<button class="trash-favorite" (click)="borrarFavorito(favourite.id)">
 				<img src="../../../assets/icons/btn-delete.png" alt="">
 			</button>
