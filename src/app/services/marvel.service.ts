@@ -8,7 +8,9 @@ import  'rxjs/Rx';
 
 @Injectable()
 export class MarvelService {
- 
+  
+  location:any;
+
   ts:number = new Date().getTime();
   hash:any;
   limit:number = 10;

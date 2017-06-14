@@ -5,13 +5,16 @@ import { FavouriteService } from '../../services/favourite.service';
 import { Router } from '@angular/router';
 
 
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+  
 
+  
   idComicsArray:number[] = [];
   comicItem:any[]= [];
   comicsData:any[]=[];
@@ -21,9 +24,13 @@ export class NavbarComponent implements OnInit {
   constructor(public _marvelService:MarvelService,
               public _pagerService:PagerService, 
               public _favouriteService:FavouriteService,
-              private router:Router) { }
+              private router:Router,
+              ) { 
+       
+ }
 
   ngOnInit() {
+    
   }
 
   buscarHeroe(){
@@ -91,7 +98,7 @@ export class NavbarComponent implements OnInit {
           this.comicItem = [];
         }
       }
-      console.log('items',this.comicItem);
+      // console.log('items',this.comicItem);
       // Recorro el arreglo de items para sacar las url
        for(let i = 0; i < this.comicItem.length; i++){
          // console.log(comicItem[i])
@@ -140,7 +147,7 @@ export class NavbarComponent implements OnInit {
         }
       }
     }
-    console.log('idalefavo', this.idAleFavo);
+    // console.log('idalefavo', this.idAleFavo);
   }
 
 

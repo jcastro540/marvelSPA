@@ -2,12 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { MarvelService } from '../../services/marvel.service';
 import { ActivatedRoute, Params } from '@angular/router';
 import { FavouriteService } from '../../services/favourite.service';
+import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
 
 
 @Component({
   selector: 'app-detail',
   templateUrl: './detail.component.html',
-  styleUrls: ['./detail.component.css']
+  styleUrls: ['./detail.component.css'],
+  providers: [Location, {provide: LocationStrategy, useClass: PathLocationStrategy}]
 })
 export class DetailComponent implements OnInit {
   
@@ -21,7 +23,11 @@ export class DetailComponent implements OnInit {
 
   constructor( public _marvelService:MarvelService,
   			   public _activatedRoute:ActivatedRoute,
-  			   public _favouriteService:FavouriteService ) { }
+  			   public _favouriteService:FavouriteService,
+           public location: Location  ) {
+              this._marvelService.location = location;
+              console.log(this._marvelService.location.path());
+            }
 
   ngOnInit() {
   	this._activatedRoute.params.forEach((params:Params)=>{

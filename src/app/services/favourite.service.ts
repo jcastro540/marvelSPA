@@ -10,7 +10,7 @@ export class FavouriteService {
   saveFavourite(favourite:any){
   	this.favourites.push(favourite)
   	localStorage.setItem('favourite', JSON.stringify(this.favourites));
-  	console.log(this.favourites);
+  	// console.log(this.favourites);
   }
 
   getFavourite(){

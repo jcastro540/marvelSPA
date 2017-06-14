@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { MarvelService } from '../../services/marvel.service';
 import { PagerService } from '../../services/pager.service';
+import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
+  providers: [Location, {provide: LocationStrategy, useClass: PathLocationStrategy}]
 })
 export class HomeComponent implements OnInit {
   
@@ -32,10 +34,15 @@ export class HomeComponent implements OnInit {
 
 
   constructor( public _marvelService:MarvelService,
-  			   private _pagerService: PagerService ) { }
+      			   private _pagerService: PagerService,
+               public location: Location ) { 
+     // this.location = location;
+     this._marvelService.location = location;
+     console.log(this._marvelService.location.path());
+  }
 
   ngOnInit() {
-	
+	  
   }
 
 
@@ -52,8 +59,8 @@ export class HomeComponent implements OnInit {
         // Obtener la página actual de los elementos
         this._marvelService.pagedItems = this._marvelService.heroes.slice(this._marvelService.pager.startIndex, this._marvelService.pager.endIndex + 1);
 
-        console.log('limite ', this._marvelService.pager.limit)
-        console.log('offset ',this._marvelService.pager.offset)
+        // console.log('limite ', this._marvelService.pager.limit)
+        // console.log('offset ',this._marvelService.pager.offset)
         // this.getHeroes();
         this._marvelService.offset = this._marvelService.pager.offset;
         this.getHeroesPaginados();
