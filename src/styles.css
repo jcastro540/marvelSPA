@@ -119,7 +119,7 @@ select{
 	background-image: url(assets/icons/btn_arrow_down.png)!important;
   -webkit-appearance: none;
   -moz-appearance: none;
-  background-position-x: 244px;
+  background-position-x: 95%;
 }
 
 
@@ -192,10 +192,10 @@ select{
 	display: block;
 	margin: 0 auto;
 	width: 70%;
-	height: 340px;
 	background-size: cover;
 	background-position: center center;
 	position: relative;
+  margin-bottom: -20px;
 }
 
 .trash-favorite{
