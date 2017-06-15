@@ -154,7 +154,7 @@ export class NavbarComponent implements OnInit {
           // console.log(this.idComicsArray[c]);
           
           this.idAleFavo.push(this.idComicsArray[c])   
-          console.log(this.idAleFavo)   
+          // console.log(this.idAleFavo)   
         }
       }
     }
