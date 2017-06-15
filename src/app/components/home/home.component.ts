@@ -67,11 +67,13 @@ export class HomeComponent implements OnInit {
     }
 
     getHeroesPaginados(){
-
+      this._marvelService.loader = true;
+      this._marvelService.heroes = [];
   		this._marvelService.findCharacter(this._marvelService.heroe)
   		.subscribe(heroes=>{
   			this._marvelService.heroes = heroes.data.results;
   			this._marvelService.itemsPaginated = heroes.data.total;
+        this._marvelService.loader = false;
   			// console.log(this._marvelService.itemsPaginated);
   			// console.log('Buscar', this._marvelService.heroes);
   			// this.setPage(1);
