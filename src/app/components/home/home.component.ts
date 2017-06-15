@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit {
                public location: Location ) { 
      // this.location = location;
      this._marvelService.location = location;
-     console.log(this._marvelService.location.path());
+     // console.log(this._marvelService.location.path());
   }
 
   ngOnInit() {

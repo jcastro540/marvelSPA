@@ -26,7 +26,7 @@ export class DetailComponent implements OnInit {
   			   public _favouriteService:FavouriteService,
            public location: Location  ) {
               this._marvelService.location = location;
-              console.log(this._marvelService.location.path());
+              // console.log(this._marvelService.location.path());
             }
 
   ngOnInit() {
@@ -72,7 +72,7 @@ export class DetailComponent implements OnInit {
   				this.comics.push(comic.data.results);
   			})
   	}
-  	console.log(this.comics);
+  	// console.log(this.comics);
   }
 
   addFavorite(comic:any){
@@ -88,13 +88,13 @@ export class DetailComponent implements OnInit {
     // console.log(id);
     for(let val of arreglo){
       if( val.id == id){
-        console.log( 'val: ' + val.id , 'id: ' + id );
-        console.log('Es favorito')
+        // console.log( 'val: ' + val.id , 'id: ' + id );
+        // console.log('Es favorito')
         return true;
       }
        else{
-        console.log( 'val: ' + val.id , 'id: ' + id );
-        console.log('no favorito');
+        // console.log( 'val: ' + val.id , 'id: ' + id );
+        // console.log('no favorito');
         // return false;
       }
 
@@ -103,7 +103,7 @@ export class DetailComponent implements OnInit {
 
   existeComic(id){
     this.favo = this.isFavourite(this._favouriteService.favourites, id);
-    console.log(this.favo);
+    // console.log(this.favo);
   }
 
 }
