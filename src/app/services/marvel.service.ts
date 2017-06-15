@@ -11,6 +11,8 @@ export class MarvelService {
   
   location:any;
 
+  loader:boolean;
+
   ts:number = new Date().getTime();
   hash:any;
   limit:number = 10;

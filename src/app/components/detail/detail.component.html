@@ -1,5 +1,11 @@
+<div class="caja-carga animated fadeIn fast" *ngIf="_marvelService.loader">
+    <div class="logo-spin" style="background-image: url(./assets/img/marvel-logo-spin.png);">        
+      </div>
+  	<div class="loader"></div>
+</div>
+
 <section class="container-fluid">
-	<div class="card mt30">
+	<div class="card mt30 animated fadeIn">
 		<div class="card-block">
 			<div class="row" *ngFor="let h of hero">
 			<article class="col-sm-4">
@@ -12,7 +18,9 @@
 					Without description
 			    </h5>
 				
-				<a [routerLink]="['/home']" class="btn btn-danger">BACK</a>
+				<a [routerLink]="['/home']" class="btn btn-danger">
+					<i class="fa fa-chevron-left" aria-hidden="true"></i> BACK
+				</a>
 
 			</article>
 			<article class="col-sm-8">

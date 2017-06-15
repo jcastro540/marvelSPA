@@ -4,6 +4,8 @@ import { PagerService } from '../../services/pager.service';
 import { FavouriteService } from '../../services/favourite.service';
 import { Router } from '@angular/router';
 
+declare var jQuery:any;
+declare var $:any;
 
 
 @Component({
@@ -30,10 +32,14 @@ export class NavbarComponent implements OnInit {
  }
 
   ngOnInit() {
-    
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+    })
   }
 
   buscarHeroe(){
+    this._marvelService.loader = true;
+    this._marvelService.heroes = [];
   	this._marvelService.findCharacter(this._marvelService.heroe)
   		.subscribe(heroes=>{
   			this._marvelService.heroes = heroes.data.results;
@@ -47,13 +53,16 @@ export class NavbarComponent implements OnInit {
         // if(this._marvelService.heroes.length > 0){
         this.idAleFavo = []
         this.getIdsComics(this._marvelService.heroes);
+        this._marvelService.loader = false;
         // }else{
         //   this.idComicsArray = [];
         //   // console.log('Vacio');
         // }
         return this.router.navigate(['/home']);
 
-  		})
+      });
+
+
   }
 
     //Paginador

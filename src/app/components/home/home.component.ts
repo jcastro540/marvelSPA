@@ -11,7 +11,6 @@ import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common'
 })
 export class HomeComponent implements OnInit {
   
-  // heroes:any;
   hashImg:string ="/standard_fantastic";
   order:any[] = [
   	{

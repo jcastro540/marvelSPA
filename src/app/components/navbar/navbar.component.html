@@ -1,4 +1,4 @@
-<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse ">
+<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse animated fadeIn fast">
   <div class="container">
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -27,8 +27,9 @@
         <button (click)="agregarFavoritoAleatorio()"
               [disabled]="comicsData.length == 0" 
               [ngClass]="{'ocultar': _marvelService.location.path() !='/home' }"
-              class="btn btn-danger">
-        Random
+              class="btn btn-danger btn-random"
+              data-toggle="tooltip" data-placement="bottom" title="Random Comics">
+        <i class="fa fa-random" aria-hidden="true"></i>
       </button>
       </span>
     </div>

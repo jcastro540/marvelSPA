@@ -30,6 +30,7 @@ export class DetailComponent implements OnInit {
             }
 
   ngOnInit() {
+    this._marvelService.loader = true;
   	this._activatedRoute.params.forEach((params:Params)=>{
   		this.id = params['id'];
   		this._marvelService.getHero(this.id)
@@ -39,6 +40,7 @@ export class DetailComponent implements OnInit {
   				this.getIdComic(this.hero);
   				this.getComics();
   				this._favouriteService.getFavourite();
+          this._marvelService.loader = false;
   			})
   	});
   }
