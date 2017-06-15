@@ -136,6 +136,7 @@ export class NavbarComponent implements OnInit {
   comicsValoresAleatorios(comics:number[]){
     let fin = comics.length -1;
     let ale:number[] = [];
+    this.idAleFavo = [];
     // console.log(fin);
     // obtengo numero aleatorio de la posicion del array
     for(let i = 1; i <= 3; i++){
@@ -152,7 +153,8 @@ export class NavbarComponent implements OnInit {
           // console.log('iguales')
           // console.log(this.idComicsArray[c]);
           
-          this.idAleFavo.push(this.idComicsArray[c])      
+          this.idAleFavo.push(this.idComicsArray[c])   
+          console.log(this.idAleFavo)   
         }
       }
     }
