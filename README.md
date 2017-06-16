@@ -18,6 +18,9 @@ La APP SPA la desarrolle con Angular en su última versión (4), para correr la 
 ## En la web
 La app se encuentra en producción corriendo en [http://marvel.josecastro.com.ve/home](http://marvel.josecastro.com.ve/home)
 
+## Test
+Para correr los tests ejecutar los comandos ng test (Test unitarios) y ng e2e (Test de integración)
+
 
 ### Las capas de la aplicación
 
