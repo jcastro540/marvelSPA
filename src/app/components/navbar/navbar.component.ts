@@ -164,26 +164,71 @@ export class NavbarComponent implements OnInit {
 
   agregarFavoritoAleatorio(){
     this.comicsValoresAleatorios(this.idComicsArray)
+    // console.log(this.idAleFavo)
     // this.idAleFavo = [];
     // this.getIdsComics(this._marvelService.heroes);
     let nuevoFavorite:any=[];
-    for(let favo of this.idAleFavo){
-      // hago la petición para obtener esos comics
-      this._marvelService.getComic(favo)
-            .subscribe(data=>{
-   
-             this._favouriteService.saveFavourite(data.data.results[0])
+    // console.log(this.idAleFavo)
+    // console.log(this._favouriteService.favourites)
 
+    // Comparo los dos arreglos y verifico si hay match
+    for(let f of this._favouriteService.favourites){   
+      
+       // console.log('fav',f.id)
 
-            });
+       for (let x of this.idAleFavo) {
+         // console.log('ale',x);
+
+         if(f.id === x){
+           // console.log('equal', f.id, x)
+         }else{
+           // console.log('not-equal', f.id, x)
+           nuevoFavorite.push(x)
+         }
+
+       }
       
     }
-     // console.log('Get Comics F', this.aleatorioFavourites);
+     // console.log(nuevoFavorite);
+       //Elimino los repetidos del array
+      nuevoFavorite = this.eliminarDuplicados(nuevoFavorite)
+      // console.log(nuevoFavorite);
 
+     // Finalment los guardo en localStorage
+      
+      if(this._favouriteService.favourites.length == 0){
+          for(let favo of this.idAleFavo){
+          // hago la petición para obtener esos comics
+          this._marvelService.getComic(favo)
+                .subscribe(data=>{
+                  this._favouriteService.saveFavourite(data.data.results[0]);
+          });
+        }
+      }else{
+        for(let favo of nuevoFavorite){
+        // hago la petición para obtener esos comics
+        this._marvelService.getComic(favo)
+              .subscribe(data=>{
+                this._favouriteService.saveFavourite(data.data.results[0]);
+        });
+      }
+    }
    
   }
 
+eliminarDuplicados(arr) {
+   let i, len=arr.length, out=[], obj={};
 
+   for (i=0;i<len;i++) {
+      obj[arr[i]]=0;
+   }
+
+   for (i in obj) {
+      out.push(i);
+   }
+
+   return out;
+ }
 
 
 }
